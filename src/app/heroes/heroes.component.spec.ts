@@ -22,4 +22,9 @@ describe('HeroesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`should have as title 'app'`, async(() => {
+    expect(component.hero).toEqual('Windstorm');
+  }));
+
 });
