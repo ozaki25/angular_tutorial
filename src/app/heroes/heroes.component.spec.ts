@@ -29,7 +29,7 @@ describe('HeroesComponent', () => {
 
   it('should render hero header in a h2 tag', async(() => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Windstorm Details');
+    expect(compiled.querySelector('h2').textContent).toContain('WINDSTORM Details');
   }));
 
   it('should render hero id in a div tag', async(() => {
