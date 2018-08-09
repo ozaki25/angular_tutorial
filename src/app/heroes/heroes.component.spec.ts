@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { HeroesComponent } from './heroes.component';
 
@@ -8,7 +9,8 @@ describe('HeroesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeroesComponent ]
+      declarations: [ HeroesComponent ],
+      imports: [FormsModule],
     })
     .compileComponents();
   }));
@@ -35,10 +37,5 @@ describe('HeroesComponent', () => {
   it('should render hero id in a div tag', async(() => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('.hero-id').textContent).toContain('id: 1');
-  }));
-
-  it('should render hero name in a div tag', async(() => {
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.hero-name').textContent).toContain('name: Windstorm');
   }));
 });
