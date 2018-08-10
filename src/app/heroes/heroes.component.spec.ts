@@ -26,16 +26,11 @@ describe('HeroesComponent', () => {
   });
 
   it(`should have hero`, async(() => {
-    expect(component.hero).toEqual({ id: 1, name: 'Windstorm' });
+    expect(component.heroes.length).toEqual(10);
   }));
 
   it('should render hero header in a h2 tag', async(() => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('WINDSTORM Details');
-  }));
-
-  it('should render hero id in a div tag', async(() => {
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.hero-id').textContent).toContain('id: 1');
+    expect(compiled.querySelector('h2').textContent).toContain('My Heroes');
   }));
 });
