@@ -5,10 +5,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-        HeroesComponent
-      ],
+      declarations: [AppComponent, HeroesComponent],
       imports: [FormsModule],
     }).compileComponents();
   }));
@@ -26,6 +23,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Tour of Heroes');
+    expect(compiled.querySelector('h1').textContent).toContain(
+      'Tour of Heroes',
+    );
   }));
 });
