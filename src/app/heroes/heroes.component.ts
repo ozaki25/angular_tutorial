@@ -29,4 +29,9 @@ export class HeroesComponent implements OnInit {
       .addHero({ name } as Hero)
       .subscribe(hero => (this.heroes = [...this.heroes, hero]));
   }
+
+  delete(hero: Hero): void {
+    this.heroes = [...this.heroes.filter(h => h !== hero)];
+    this.heroService.deleteHero(hero.id).subscribe();
+  }
 }
