@@ -10,6 +10,10 @@ import { Hero } from './hero';
 export class HeroService {
   private heroesUrl = 'api/heroes';
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService,
@@ -26,6 +30,20 @@ export class HeroService {
     return this.http.get<Hero>(`${this.heroesUrl}/${id}`).pipe(
       tap(_ => this.log(`fetched hero id=${id}`)),
       catchError(this.handleError<Hero>(`getHero id=${id}`)),
+    );
+  }
+
+  addHero(hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
+      tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
+      catchError(this.handleError<Hero>('addHero')),
+    );
+  }
+
+  updateHero(hero: Hero): Observable<Hero> {
+    return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
+      tap(_ => this.log(`updated hero id=${hero.id}`)),
+      catchError(this.handleError<any>('updateHero')),
     );
   }
 
